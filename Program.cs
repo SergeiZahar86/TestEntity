@@ -13,8 +13,8 @@ namespace TestEntity
             // добавление данных
             using (ApplicationContext db = new ApplicationContext())
             {
-                User user1 = new User { Name = "Tom", Age = 33 };
-                User user2 = new User { Name = "Alice", Age = 26 };
+                User user1 = new User { Name = "Aleksandr", Age = 33, Birth = new DateTime(1999, 10, 23) };
+                User user2 = new User { Name = "Alice", Age = 26, Birth = new DateTime(2011, 11, 03) };
 
                 db.Users.AddRange(user1, user2);
                 db.SaveChanges();
@@ -26,7 +26,7 @@ namespace TestEntity
                 Console.WriteLine("Список объектов:");
                 foreach (User u in users)
                 {
-                    Console.WriteLine($"{u.Id}.{u.Name} - {u.Age}");
+                    Console.WriteLine($"{u.Id}.{u.Name} - {u.Age}, {u.Birth}");
                 }
                 Console.ReadLine();
             }
