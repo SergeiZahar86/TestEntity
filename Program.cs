@@ -28,6 +28,17 @@ namespace TestEntity
                 {
                     Console.WriteLine($"{u.Id}.{u.Name} - {u.Age}, {u.Birth}");
                 }
+                //Console.ReadLine();
+            }
+
+            using (entityContext db = new entityContext())
+            {
+                var books = db.Books.ToList();
+                Console.WriteLine("Список книг:");
+                foreach (Books u in books)
+                {
+                    Console.WriteLine($"{u.Id}.{u.Name} - {u.Author}, {u.DateCreation.ToString()}, {u.Pages.ToString()}");
+                }
                 Console.ReadLine();
             }
         }
